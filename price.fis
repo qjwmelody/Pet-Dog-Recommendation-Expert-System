@@ -1,0 +1,33 @@
+[System]
+Name='price'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='price'
+Range=[0 10000]
+NumMFs=3
+MF1='low':'zmf',[695 1963.02816901408]
+MF2='medium':'gaussmf',[785 2973.23943661972]
+MF3='high':'smf',[4148.02816901408 7156.69014084507]
+
+[Output1]
+Name='output1'
+Range=[0 10]
+NumMFs=3
+MF1='mf1':'zmf',[1.35 2.94894366197183]
+MF2='mf2':'gaussmf',[0.710260308339453 5]
+MF3='mf3':'smf',[6.20598591549296 8.67]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1

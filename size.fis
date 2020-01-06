@@ -1,0 +1,41 @@
+[System]
+Name='size'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='height'
+Range=[0 80]
+NumMFs=3
+MF1='low':'gaussmf',[14.16 -1.066e-15]
+MF2='medium':'gaussmf',[14.16 40]
+MF3='high':'gaussmf',[14.17 80]
+
+[Input2]
+Name='weight'
+Range=[0 60]
+NumMFs=3
+MF1='light':'gaussmf',[10.62 -7.995e-16]
+MF2='medium':'gaussmf',[10.62 30]
+MF3='heavy':'gaussmf',[10.63 60]
+
+[Output1]
+Name='size'
+Range=[0 1]
+NumMFs=3
+MF1='small':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF2='medium':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='large':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Rules]
+3 0, 3 (1) : 1
+1 0, 1 (1) : 1
+2 3, 3 (1) : 1

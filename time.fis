@@ -1,0 +1,80 @@
+[System]
+Name='time'
+Type='mamdani'
+Version=2.0
+NumInputs=6
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='shed'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.208 1.50088028169014]
+MF2='medium':'gaussmf',[0.840978110771105 2.94]
+MF3='much':'smf',[3.125 4.792]
+
+[Input2]
+Name='smell'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.208 1.48327464788732]
+MF2='medium':'gaussmf',[0.794085977572104 2.92]
+MF3='much':'smf',[3.125 4.792]
+
+[Input3]
+Name='saliva'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.2083 1.677]
+MF2='medium':'gaussmf',[0.609328580312267 2.5]
+MF3='much':'smf',[3.125 4.792]
+
+[Input4]
+Name='grooming'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.208 1.50968309859155]
+MF2='medium':'gaussmf',[0.421 1.92950704225352]
+MF3='much':'smf',[1.99 3.52552816901408]
+
+[Input5]
+Name='exercise'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.2083 1.875]
+MF2='medium':'gaussmf',[0.755 2.96253521126761]
+MF3='much':'smf',[3.125 4.792]
+
+[Input6]
+Name='needy'
+Range=[0 5]
+NumMFs=3
+MF1='little':'zmf',[0.92 1.98503521126761]
+MF2='medium':'gaussmf',[0.437 2.61443661971831]
+MF3='much':'smf',[2.5 3.73679577464789]
+
+[Output1]
+Name='time'
+Range=[0 10]
+NumMFs=5
+MF1='little':'zmf',[0.0417 2.57922535211268]
+MF2='medium':'gaussmf',[0.9495 5]
+MF3='much':'smf',[6.25 9.583]
+MF4='medium-':'gaussmf',[1.123 2.5]
+MF5='medium+':'gaussmf',[1.123 7.25]
+
+[Rules]
+3 0 0 0 0 0, -5 (1) : 2
+0 3 0 0 0 0, -4 (1) : 2
+0 0 3 0 0 0, -5 (1) : 2
+0 0 0 0 0 1, -2 (1) : 2
+0 0 0 2 0 0, -3 (1) : 2
+0 0 0 0 3 0, -5 (1) : 2
+0 0 0 0 0 2, -3 (1) : 2
+2 2 2 2 2 1, -1 (1) : 2

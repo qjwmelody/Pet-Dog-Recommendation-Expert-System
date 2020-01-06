@@ -1,0 +1,52 @@
+[System]
+Name='friendliness'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=6
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='children'
+Range=[0 5]
+NumMFs=3
+MF1='bad':'zmf',[0.602992957746479 1.88]
+MF2='average':'gaussmf',[0.893432703648048 2.5]
+MF3='good':'smf',[3.17341549295775 4.79]
+
+[Input2]
+Name='stranger'
+Range=[0 5]
+NumMFs=3
+MF1='bad':'zmf',[0.208 1.11355633802817]
+MF2='average':'gbellmf',[1.042 3.278 2.121]
+MF3='good':'smf',[3.00616197183099 4.47]
+
+[Input3]
+Name='animal'
+Range=[0 5]
+NumMFs=3
+MF1='bad':'zmf',[0.990316901408451 1.88]
+MF2='average':'gaussmf',[0.603885743423098 2.52]
+MF3='good':'smf',[3.125 4.792]
+
+[Output1]
+Name='friendliness'
+Range=[0 10]
+NumMFs=3
+MF1='bad':'zmf',[0.0417 3.97007042253521]
+MF2='average':'gaussmf',[1.769 5]
+MF3='good':'smf',[6.25 9.583]
+
+[Rules]
+3 0 0, 3 (1) : 2
+0 2 0, 3 (1) : 2
+0 0 2, 3 (1) : 2
+2 1 2, 2 (1) : 1
+1 0 0, 1 (1) : 1
+0 0 1, 1 (1) : 1
