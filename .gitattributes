@@ -1,0 +1,3 @@
+*.fis linguist-language=matlab
+*.exe linguist-language=matlab
+*.cpp linguist-language=matlab
